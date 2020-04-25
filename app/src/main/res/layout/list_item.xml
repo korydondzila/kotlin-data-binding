@@ -9,12 +9,16 @@
         <variable
             name="optionID"
             type="Integer" />
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/list_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.toggle(optionID)}"
         android:minHeight="44dp">
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -25,6 +29,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:checked="@{safeUnbox(optionID) == safeUnbox(viewModel.selectedID)}"
             android:clickable="false"
             android:text="@{Integer.toString(safeUnbox(optionID))}"
             android:textSize="20sp"

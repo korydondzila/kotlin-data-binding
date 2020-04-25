@@ -3,8 +3,9 @@ package com.example.myapplication
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+class MainViewModel @Inject constructor(): ViewModel() {
     private val _selectedID = MutableLiveData<Int>()
     val selectedID: LiveData<Int> = _selectedID
 
